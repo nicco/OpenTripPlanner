@@ -34,6 +34,7 @@ import org.opentripplanner.routing.core.TraverseMode;
 import org.opentripplanner.routing.edgetype.PatternInterlineDwell;
 import org.opentripplanner.routing.graph.Edge;
 import org.opentripplanner.routing.transit_index.adapters.LineStringAdapter;
+import org.opentripplanner.routing.transit_index.adapters.RouteAdapter;
 import org.opentripplanner.routing.transit_index.adapters.StopAgencyAndIdAdapter;
 import org.opentripplanner.routing.transit_index.adapters.TripsModelInfo;
 import org.slf4j.Logger;
@@ -102,6 +103,8 @@ public class RouteVariant implements Serializable {
     @JsonIgnore
     private ArrayList<PatternInterlineDwell> interlines;
 
+    @XmlElement(name = "route")
+    @XmlJavaTypeAdapter(RouteAdapter.class)
     private Route route;
 
     private String direction;
